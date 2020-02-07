@@ -34,9 +34,7 @@ RUN docker-php-source extract && \
     docker-php-ext-enable xdebug redis mongodb amqp  && \
     docker-php-source delete
 
-RUN docker-php-ext-install opcache pdo_mysql pdo_pgsql xml intl zip mbstring bcmath sockets xsl
-RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
-RUN docker-php-ext-install gd
+RUN docker-php-ext-install opcache pdo_mysql pdo_pgsql xml intl zip mbstring bcmath sockets xsl exif gd
 
 WORKDIR /var/www
 
