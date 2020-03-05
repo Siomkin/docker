@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libxml2-dev \
     jpegoptim optipng pngquant gifsicle \
-    vim \
+    nano \
     unzip \
     git \
     cron \
@@ -34,7 +34,7 @@ RUN docker-php-source extract && \
     docker-php-ext-enable redis amqp  && \
     docker-php-source delete
 
-RUN docker-php-ext-install opcache pdo_mysql xml intl zip mbstring bcmath sockets xsl exif gd
+RUN docker-php-ext-install opcache pdo_mysql mysqli xml intl zip mbstring bcmath sockets xsl exif gd
 
 WORKDIR /var/www
 
