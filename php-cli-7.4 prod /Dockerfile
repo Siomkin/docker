@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.4-cli-alpine
 
 RUN apk update && apk upgrade
 # Install dependencies
@@ -13,6 +13,8 @@ RUN docker-php-ext-install opcache pdo_mysql mysqli zip mbstring bcmath sockets 
 
 WORKDIR /var/www
 
-# Expose port 9000 and start php-fpm server
+# Install composer
+RUN curl -sS  https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
 EXPOSE 9000
-CMD ["php-fpm"]
+CMD ["php"]
